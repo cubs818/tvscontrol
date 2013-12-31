@@ -55,16 +55,34 @@ wget https://github.com/czechtech/libqxkey24/archive/master.zip
 unzip master.zip
 rm master.zip
 cd libqxkey24-master
-quake && make
+qmake && make
 sudo make install
 cd ..
 }}}
 
-== QXKey24 ==
+== TVSControl ==
 {{{
 wget https://tvscontrol.googlecode.com/svn/trunk
 cd tvscontrol
-quake && make
+qmake && make
 sudo make install
+sudo cp starttvscontrol.sh /etc/init.d/
+sudo chmod 755 /etc/init.d/starttvscontrol.sh
+sudo update-rc.d starttvscontrol.sh defaults
 cd ..
+}}}
+
+== Reboot ==
+{{{
+sudo poweroff
+}}}
+Power cycle to reboot.
+
+To terminate tvscontrol:
+{{{
+ps aux
+}}}
+Identify the process id, PID.
+{{{
+sudo kill -9 <pid>
 }}}
