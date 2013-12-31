@@ -1,0 +1,70 @@
+#summary Installation guide
+
+= ATEM Setup =
+ATEM Television Studio needs to have firmware 4.1.
+[http://www.blackmagicdesign.com/support/archive?sid=3962&pid=3973&dlSeries=&os=mac&custom=true Mac]
+[http://www.blackmagicdesign.com/support/archive?sid=3962&pid=3973&dlSeries=&os=win&custom=true Windows]
+
+= XKeys Setup =
+TVSControl is written for XKeys device model [http://www.piengineering.com/xkeys/xk24.php XK-24].
+
+= RaspberryPi Setup =
+The majority of the setup is done on the [http://www.raspberrypi.org/faqs raspberrypi] model B.  This is the brains of the control.
+
+SD card for RaspberryPi needs to be formatted and Raspbian Wheezy 2013-09-25 installed.
+
+[http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_card_using_Mac_OSX HOWTO]
+[http://downloads.raspberrypi.org/raspbian/images/raspbian-2013-09-27/2013-09-25-wheezy-raspbian.zip Download]
+
+== Development Tools ==
+{{{
+sudo apt-get update
+sudo apt-get install qt4-dev-tools
+sudo apt-get install subversion
+sudo apt-get install libusb-1.0-0-dev
+sudo apt-get install cmake
+}}}
+
+== PI Engineering SDK ==
+{{{
+wget http://www.piengineering.com/developer/SDKs/pihid32-1.0.0.tar.gz
+tar xvf pihid32-1.0.0.tar.gz
+cd pihid32-1.0.0
+./configure -D CMAKE_INSTALL_PREFIX=/usr
+make
+sudo make install
+sudo cp udev/90-xkeys.rules /etc/udev/rules.d/
+cd ..
+}}}
+There's a minor typo that needs to be fixed `sudo nano /etc/udev/rules.d/90-xkeys.rules` and delete "S" from "ATTRS".
+
+== QATEMConnection by Peter Simonsson ==
+{{{
+wget https://github.com/czechtech/libqatemcontrol41/archive/master.zip
+unzip master.zip
+rm master.zip
+cd libqatemcontrol41-master
+qmake && make
+sudo make install
+cd ..
+}}}
+
+== QXKey24 ==
+{{{
+wget https://github.com/czechtech/libqxkey24/archive/master.zip
+unzip master.zip
+rm master.zip
+cd libqxkey24-master
+quake && make
+sudo make install
+cd ..
+}}}
+
+== QXKey24 ==
+{{{
+wget https://tvscontrol.googlecode.com/svn/trunk
+cd tvscontrol
+quake && make
+sudo make install
+cd ..
+}}}
