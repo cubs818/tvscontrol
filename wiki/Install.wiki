@@ -38,7 +38,7 @@ cd ..
 There's a minor typo that needs to be fixed `sudo nano /etc/udev/rules.d/90-xkeys.rules` and delete "S" from "ATTRS".
 
 == QATEMConnection ==
-This is a fork of [https://github.com/petersimonsson/libqatemcontrol libqatemcontrol] when Blackmagic Design moved the ATEM switchers to firmware 4.2.
+This is a fork of [https://github.com/petersimonsson/libqatemcontrol libqatemcontrol] before Blackmagic Design moved the ATEM switchers to firmware 4.2.
 {{{
 wget https://github.com/czechtech/libqatemcontrol41/archive/master.zip
 unzip master.zip
