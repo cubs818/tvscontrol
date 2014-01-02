@@ -8,7 +8,7 @@ ATEM Television Studio needs to have firmware 4.1.
 = XKeys Setup =
 TVSControl is written for XKeys device model [http://www.piengineering.com/xkeys/xk24.php XK-24].
 
-= RaspberryPi Setup =
+= Raspberry Pi Setup =
 The majority of the setup is done on the [http://www.raspberrypi.org/faqs raspberrypi] model B.  This is the brains of the control.
 
 SD card for RaspberryPi needs to be formatted and Raspbian Wheezy 2013-09-25 installed.
