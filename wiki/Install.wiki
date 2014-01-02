@@ -20,7 +20,6 @@ SD card for RaspberryPi needs to be formatted and Raspbian Wheezy 2013-09-25 ins
 {{{
 sudo apt-get update
 sudo apt-get install qt4-dev-tools
-sudo apt-get install subversion
 sudo apt-get install libusb-1.0-0-dev
 sudo apt-get install cmake
 }}}
@@ -38,7 +37,8 @@ cd ..
 }}}
 There's a minor typo that needs to be fixed `sudo nano /etc/udev/rules.d/90-xkeys.rules` and delete "S" from "ATTRS".
 
-== QATEMConnection by Peter Simonsson ==
+== QATEMConnection ==
+This is a fork of [https://github.com/petersimonsson/libqatemcontrol libqatemcontrol] when Blackmagic Design moved the ATEM switchers to firmware 4.2.
 {{{
 wget https://github.com/czechtech/libqatemcontrol41/archive/master.zip
 unzip master.zip
@@ -60,23 +60,36 @@ sudo make install
 cd ..
 }}}
 
+== QTService ==
+{{{
+wget https://qt.gitorious.org/qt-solutions/qt-solutions/archive/master.tar.gz
+tar -xvf master.tar.gz
+rm master.tar.gz
+mkdir ~/include ~/include/QtSolutions
+mv qt-solutions-qtsolutions/qtservice ~/include/QtSolutions/
+rm -rf qt-solutions-qt-solutions
+}}}
+
 == TVSControl ==
 {{{
 wget https://tvscontrol.googlecode.com/svn/trunk
 cd tvscontrol
 qmake && make
 sudo make install
+}}}
+To have tvscontrol start automatically upon powering on:
+{{{
 sudo cp starttvscontrol.sh /etc/init.d/
 sudo chmod 755 /etc/init.d/starttvscontrol.sh
-sudo update-rc.d starttvscontrol.sh defaults
+sudo update-rc.d /etc/init.d/starttvscontrol.sh defaults
 cd ..
 }}}
 
-== Reboot ==
+== Reboot Raspberry Pi ==
 {{{
 sudo poweroff
 }}}
-Power cycle to reboot.
+Wait 10 seconds, then unplug and replug in power to reboot.
 
 To terminate tvscontrol:
 {{{
