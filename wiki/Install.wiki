@@ -60,16 +60,6 @@ sudo make install
 cd ..
 }}}
 
-== QTService ==
-{{{
-wget https://qt.gitorious.org/qt-solutions/qt-solutions/archive/master.tar.gz
-tar -xvf master.tar.gz
-rm master.tar.gz
-mkdir ~/include ~/include/QtSolutions
-mv qt-solutions-qtsolutions/qtservice ~/include/QtSolutions/
-rm -rf qt-solutions-qt-solutions
-}}}
-
 == TVSControl ==
 {{{
 wget https://tvscontrol.googlecode.com/svn/trunk
@@ -79,9 +69,9 @@ sudo make install
 }}}
 To have tvscontrol start automatically upon powering on:
 {{{
-sudo cp starttvscontrol.sh /etc/init.d/
-sudo chmod 755 /etc/init.d/starttvscontrol.sh
-sudo update-rc.d /etc/init.d/starttvscontrol.sh defaults
+sudo cp tvscontrol.sh /etc/init.d/
+sudo chmod 755 /etc/init.d/tvscontrol.sh
+sudo update-rc.d /etc/init.d/tvscontrol.sh defaults
 cd ..
 }}}
 
@@ -90,12 +80,3 @@ cd ..
 sudo poweroff
 }}}
 Wait 10 seconds, then unplug and replug in power to reboot.
-
-To terminate tvscontrol:
-{{{
-ps aux
-}}}
-Identify the process id, PID.
-{{{
-sudo kill -9 <pid>
-}}}
