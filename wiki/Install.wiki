@@ -71,7 +71,7 @@ To have tvscontrol start automatically upon powering on:
 {{{
 sudo cp tvscontrol.sh /etc/init.d/
 sudo chmod 755 /etc/init.d/tvscontrol.sh
-sudo update-rc.d /etc/init.d/tvscontrol.sh defaults
+sudo update-rc.d tvscontrol.sh defaults
 cd ..
 }}}
 
