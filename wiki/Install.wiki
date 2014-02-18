@@ -16,6 +16,12 @@ SD card for Raspberry Pi needs to be formatted and Raspbian Wheezy 2013-09-25 in
 [http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_card_using_Mac_OSX HOWTO]
 [http://downloads.raspberrypi.org/raspbian/images/raspbian-2013-09-27/2013-09-25-wheezy-raspbian.zip Download]
 
+== Remote Connection ==
+[http://learn.adafruit.com/system/assets/assets/000/003/130/original/gpio_closeup.jpg RX, TX, Gnd, 5v]
+{{{
+sudo screen /dev/tty.usbserial 115200
+}}}
+
 == Development Tools ==
 {{{
 sudo apt-get update
