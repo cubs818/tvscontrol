@@ -1,0 +1,76 @@
+#summary These are my notes on attempting to utilize the VideoCore OpenVG interface on the RaspberryPi. This could be great for an ATEM which has multiple HDMI ports. It could used as a more powerful media player.
+
+= Installing OpenVG =
+
+Update RaspberryPi firmware. Type:
+{{{
+sudo apt-get install rpi-update
+sudo rpi-update
+}}}
+
+Update apt-get too. Type:
+{{{
+sudo apt-get update
+sudo apt-get dist-upgrade
+}}}
+This will likely take a while 30+ minutes.
+
+The GPU needs to have more [http://elinux.org/R-Pi_Troubleshooting#Choosing_the_right_ARM.2FGPU_memory_split more memory] than is dynamically allocated to it by default.  Edit the RaspberryPi's configuration:
+{{{
+sudo nano /boot/config.txt
+}}}
+... and, add the following line to the bottom the file:
+{{{
+gpu_mem=128
+}}}
+Save and exit.
+
+You will have to reboot for the above steps to take affect.
+{{{
+sudo reboot
+}}}
+
+[https://github.com/raspberrypi/firmware/tree/master/opt/vc/src/hello_pi Example code] should be available in /opt/vc/src/hello_pi/.
+{{{
+ls /opt/vc/src/hello_pi
+}}}
+
+= OpenVG Shapes.h =
+
+Install necessary dependencies:
+{{{
+sudo apt-get install libjpeb8-dev libfreetype6-dev git
+}}}
+
+{{{
+git clone git://github.com/ajstarks/openvg
+cd openvg
+make libshapes.o
+make fonts
+cd ..
+}}}
+
+Test the library:
+{{{
+cd openvg/client
+make test
+}}}
+At the end of the demo, it will display the website of the library.  Press the enter key to terminate.
+{{{
+cd ../..
+}}}
+
+Install the library:
+??
+
+= OMXPlayer =
+
+https://github.com/popcornmix/omxplayer
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
