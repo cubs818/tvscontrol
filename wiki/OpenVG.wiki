@@ -35,18 +35,18 @@ sudo reboot
 ls /opt/vc/src/hello_pi
 }}}
 
-= OpenVG Shapes.h =
+= [http://mindchunk.blogspot.com/2012/09/openvg-on-raspberry-pi.html OpenVG LibShapes] =
 
 Install necessary dependencies:
 {{{
-sudo apt-get install libjpeb8-dev libfreetype6-dev git
+sudo apt-get install libjpeg8-dev libfreetype6-dev git indent
 }}}
 
 {{{
-git clone git://github.com/ajstarks/openvg
+git clone git://github.com/czechtech/openvg
 cd openvg
-make libshapes.o
-make fonts
+make library
+sudo make install
 cd ..
 }}}
 
@@ -60,8 +60,8 @@ At the end of the demo, it will display the website of the library.  Press the e
 cd ../..
 }}}
 
-Install the library:
-??
+= LibQProPresentText =
+
 
 = OMXPlayer =
 
