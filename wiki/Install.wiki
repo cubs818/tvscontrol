@@ -17,7 +17,7 @@ SD card for Raspberry Pi needs to be formatted and Raspbian Wheezy 2013-09-25 in
 [http://downloads.raspberrypi.org/raspbian/images/raspbian-2013-09-27/2013-09-25-wheezy-raspbian.zip Download]
 
 == Remote Connection ==
-[http://learn.adafruit.com/system/assets/assets/000/003/130/original/gpio_closeup.jpg RX, TX, Gnd, 5v]
+[https://learn.adafruit.com/system/assets/assets/000/003/130/medium800/learn_raspberry_pi_gpio_closeup.jpg RX, TX, Gnd, 5v]
 {{{
 sudo screen /dev/tty.usbserial 115200
 }}}
